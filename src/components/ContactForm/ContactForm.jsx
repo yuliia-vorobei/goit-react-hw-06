@@ -29,7 +29,7 @@ export default function ContactForm() {
   const handleSubmit = (values, { resetForm }) => {
     dispatch(
       addContact({
-        id: nameFieldId,
+        id: crypto.randomUUID(),
         number: values.number,
         name: values.name,
       })

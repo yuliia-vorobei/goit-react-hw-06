@@ -37,19 +37,19 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const slice = createSlice({
   name: "contacts",
-  initialState: {
-    contacts: {
-      items: [],
-    },
-  },
+  initialState: { items: [] },
   reducers: {
     addContact: (state, action) => {
-      state.contacts.items.push(action.payload);
+      return {
+        ...state,
+        items: [...state.items, action.payload],
+      };
     },
-    deleteContact: (state, action) => {
-      state.contacts.items = state.contacts.items.filter(
-        (contact) => contact.id !== action.payload
-      );
+    deleteContact(state, action) {
+      return {
+        ...state,
+        items: state.items.filter((contact) => contact.id !== action.payload),
+      };
     },
   },
 });

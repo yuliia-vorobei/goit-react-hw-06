@@ -5,8 +5,9 @@ import { changeFilter } from "../redux/filtersSlice";
 export default function SearchBox() {
   const dispatch = useDispatch();
   const filter = useSelector((state) => state.filters.name);
-  const handleFilterChange = (event) =>
+  const handleFilterChange = (event) => {
     dispatch(changeFilter(event.target.value));
+  };
   return (
     <>
       <p className={css.contacts}>Find contacts by name</p>
